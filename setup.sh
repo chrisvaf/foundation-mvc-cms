@@ -21,9 +21,9 @@ SQLSERVER=${SQLSERVER:-localhost}
 dotnet new -i EPiServer.Net.Templates --nuget-source https://nuget.optimizely.com/feed/packages.svc/ --force
 dotnet tool install EPiServer.Net.Cli --global --add-source https://nuget.optimizely.com/feed/packages.svc/
 dotnet nuget add source https://nuget.episerver.com/feed/packages.svc -n Optimizely
-#dotnet dev-certs https --trust
+dotnet dev-certs https --trust
 
-msbuild -restore
+dotnet build
 add_sql_container
 
 cms_db=$APPNAME.Cms
